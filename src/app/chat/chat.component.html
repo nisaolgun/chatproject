@@ -1,0 +1,16 @@
+<div class="chat-icon" (click)="toggleChat()">
+    💭
+</div>
+<div class="chat-container" [class.open]="isOpen">
+    <h2>Chat Room</h2>
+    <div class="messages">
+        <p *ngFor="let message of messages">
+            <strong>{{ message.message }}</strong>
+        </p>
+    </div>
+    <form (submit)="sendMessage($event)">
+        <textarea [(ngModel)]="newMessage" (input)="adjustTextarea($event)" name="newMessage"
+            placeholder="Type your message here.😊" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</div>
